@@ -2,8 +2,8 @@ name: Release PDF from TeX
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - main
 
 jobs:
   build:
