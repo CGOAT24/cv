@@ -1,0 +1,138 @@
+\documentclass[paper=a4,fontsize=11pt]{scrartcl}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor}
+\usepackage{geometry}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{sectsty}
+
+\frenchspacing
+\pagestyle{empty}
+\textheight=700px
+\sectionfont{
+	\usefont{OT1}{phv}{b}{n}
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}
+\newcommand{\sepspace}{\vspace*{1em}}
+
+\newcommand{\MyName}[1]{
+	\noindent\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+	\par \normalsize \normalfont}
+
+\newcommand{\MySlogan}[1]{
+	\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+	\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+	\noindent\hangindent=2em\hangafter=0 % Indentation
+	\parbox{\spacebox}{ \textit{#1}} \hspace{1.5em} #2 % Box to align text% Entry name (birth, address, etc.)
+	\par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+	\noindent\hangafter=0 % Indentation
+	\parbox{8em}{ \textit{#1}} \hspace{1.5em} #2 % Box to align text% Entry name (birth, address, etc.)
+	\par}    % Entry value
+
+\newcommand{\EducationEntry}[4]{
+	\noindent \textbf{#1} \hfill      % Study
+	\colorbox{Black}{%
+		\parbox{12em}{\hfill\color{White}#2}} %
+	\par  % Duration
+	\noindent \textit{#3} \par        % School
+	\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+	\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+	\noindent \textbf{#1} \hfill      % Jobname
+	\colorbox{Black}{\color{White}#2} \par  % Duration
+	\noindent \textit{#3} \par              % Company
+	\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+	\normalsize \par}
+
+\newcommand{\Implication}[3]{				  % Same as \EducationEntry
+	\noindent \textbf{#1} \hfill      \par
+	\noindent {#2} \par              % Company
+	\noindent\hangindent=2em\hangafter=0 \small #3 % Description
+	\normalsize \par}
+
+\begin{document}
+\sepspace
+\begin{multicols}{2}
+	\huge \usefont{OT1}{phv}{b}{n}Chad Gauthier\par \normalsize \normalfont
+	\columnbreak
+	\noindent1576 rue du Saint-Esprit, Sherbrooke, QC J1K 2L2\\
+	819-383-7940\\
+	chad.gauthier32@gmail.com\\
+	github.com/cgoat24
+\end{multicols}
+
+\NewPart{Éducation}
+
+\EducationEntry{Baccalauréat en informatique}{2022-2025}{Régime coopératif\\Université de Sherbrooke}
+\sepspace
+\EducationEntry{Diplôme d'étude collégiale en informatique}{2019-2022}{Technique informatique\\Cégep de Trois-Rivières}
+\sepspace
+
+\NewPart{Expérience professionnelle}
+
+\EducationEntry{Programmeur-analyste stagiaire}{Mai à août 2024}{Nmédia}{
+	\begin{itemize}
+		\item Développement d'une plateforme d'analyse de données
+		\item Implémentation de solutions selon les demandes clients
+	\end{itemize}
+}
+\sepspace
+\EducationEntry{Programmeur outil stagiaire}{Septembre à décembre 2023}{Ubisoft Québec}{
+	\begin{itemize}
+		\item Développement d'une application web en Go
+		\item Écriture de tests Cypress
+	\end{itemize}
+}
+\sepspace
+\EducationEntry{Développeur contractuel}{Avril à septembre 2023}{Casa Das Tias}{
+	\begin{itemize}
+		\item Concevoir une application web en .NET Core
+		\item Création d'API
+	\end{itemize}
+}
+\sepspace
+\EducationEntry{Programmeur-analyste stagiaire}{Janvier à avril 2023}{Sherweb}{
+	\begin{itemize}
+		\item Développement d'une applicaiton de type microservices avec Kubernetes
+		\item Développement de fonctionnalités et assurance de la qualité logicielle
+	\end{itemize}
+}
+\sepspace
+\EducationEntry{Programmeur-analyste}{Mars à septembre 2022}{Groupe Shift}{
+	\begin{itemize}
+		\item Développement d'applications sur mesure pour différentes entreprises
+		\item Membre d'un comité de recherche sur le développement SaaS
+	\end{itemize}
+}
+\NewPart{Compétences particulières}
+\SkillsEntry{Programmation}{C\#, Go, Javascript, Typescript, Python, Vue, Sveltekit, PHP}
+\SkillsEntry{Base de données}{SQL Server, MongoDb, PostgreSQL}
+\SkillsEntry{Agile}{Scrum, Kanban}
+\sepspace
+\NewPart{Projets personnels}
+\Implication{TimeTunes}{\url{https://github.com/cgoat24/timetunes}}{
+	\begin{itemize}
+		\item Application mobile multijoueur où les joueurs doivent deviner la date de sortie de chansons en les plaçant correctement sur une ligne du temps.
+		\item Développé avec Flutter, Typescript, Hono, Bun, Prisma et ProstgreSQL
+	\end{itemize}
+}
+\Implication{La Beuverie}{\url{https://la-beuverie.vercel.app}}{
+	\begin{itemize}
+		\item Application web pour partager des recettes de cocktails
+		\item Développé avec Sveltekit, Prisma et PostgreSQL
+	\end{itemize}
+}
+\end{document}

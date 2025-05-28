@@ -2,7 +2,7 @@
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage[protrusion=true,expansion=true]{microtype}
-\usepackage{amsmath,amsfonts,amsthm}     
+\usepackage{amsmath,amsfonts,amsthm}
 \usepackage{graphicx}
 \usepackage[svgnames]{xcolor}
 \usepackage{geometry}
@@ -39,7 +39,7 @@
 \newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
 	\noindent\hangafter=0 % Indentation
 	\parbox{8em}{ \textit{#1}} \hspace{1.5em} #2 % Box to align text% Entry name (birth, address, etc.)
-	\par}    % Entry value	
+	\par}    % Entry value
 
 \newcommand{\EducationEntry}[4]{
 	\noindent \textbf{#1} \hfill      % Study
@@ -68,63 +68,71 @@
 \begin{multicols}{2}
 	\huge \usefont{OT1}{phv}{b}{n}Chad Gauthier\par \normalsize \normalfont
 	\columnbreak
-	\noindent1576 rue du Saint-Esprit, Sherbrooke, QC J1K 2L2\\
+	\noindent1576 Saint-Esprit st, Sherbrooke, QC J1K 2L2\\
 	819-383-7940\\
-	Chad.Gauthier@USherbrooke.ca\\
+	chad.gauthier32@gmail.com\\
 	github.com/cgoat24
 \end{multicols}
 
-\NewPart{Éducation}
+\NewPart{Education}
 
-\EducationEntry{Baccalauréat en informatique}{2022-2025}{Régime coopératif\\Université de Sherbrooke}
+\EducationEntry{Bachelor's degree in computer science}{2022-2025}{University of Sherbrooke}
 \sepspace
-\EducationEntry{Diplôme d'étude collégiale en informatique}{2019-2022}{Technique informatique\\Cégep de Trois-Rivières}
+\EducationEntry{Technical diploma in computer science}{2019-2022}{Cégep of Trois-Rivières}
 \sepspace
 
-\NewPart{Expérience professionnelle}
+\NewPart{Professional experience}
 
-\EducationEntry{Programmeur-analyste stagiaire}{Mai à août 2024}{Nmédia}{
+\EducationEntry{Programmer-analyst intern}{May - august 2024}{Nmédia}{
 	\begin{itemize}
-		\item Développement d'une plateforme d'analyse de données
-		\item Implémentation de solutions selon les demandes clients
+		\item Developped a data-analysis plateform
+		\item Implement solutions based on client's needs
 	\end{itemize}
 }
 \sepspace
-\EducationEntry{Programmeur outil stagiaire}{Septembre à décembre 2023}{Ubisoft Québec}{
+\EducationEntry{Tool programmer intern}{September - december 2023}{Ubisoft Québec}{
 	\begin{itemize}
-		\item Développement d'une application web en Go
-		\item Écriture de tests Cypress
+		\item Developped a web app in Go
+		\item Wrote automated Cypress tests
 	\end{itemize}
 }
 \sepspace
-\EducationEntry{Développeur contractuel}{Avril à septembre 2023}{Casa Das Tias}{
+\EducationEntry{Contractual work}{April - september 2023}{Casa Das Tias}{
 	\begin{itemize}
-		\item Concevoir une application web en .NET Core
-		\item Création d'API
+		\item Oversaw developement, deployment and hosting of a .NET Core web app
+		\item Analysed client's needs
 	\end{itemize}
 }
 \sepspace
-\EducationEntry{Programmeur-analyste stagiaire}{Janvier à avril 2023}{Sherweb}{
+\EducationEntry{Programmer-analyst intern}{January - april 2023}{Sherweb}{
 	\begin{itemize}
-		\item Développement d'une applicaiton de type microservices avec Kubernetes
-		\item Développement de fonctionnalités et assurance de la qualité logicielle
+		\item Developped a microservice app using Kubernetes
+		\item Maintained quality assurance and developped new functionnality
 	\end{itemize}
 }
 \sepspace
-\EducationEntry{Programmeur-analyste}{Mars à septembre 2022}{Groupe Shift}{
+\EducationEntry{Programmer-analyst}{March - september 2022}{Groupe Shift}{
 	\begin{itemize}
-		\item Développement d'applications sur mesure pour différentes entreprises
-		\item Membre d'un comité de recherche sur le développement SaaS
+		\item Developped custom-made solution for entreprises
+		\item Participated in a research comity for SaaS developpement
 	\end{itemize}
 }
-\NewPart{Compétences particulières}
-\SkillsEntry{Compétences en \\programmation}{C\#, Go, Javascript, Typescript, Python, SQL Server, MongoDb,}
-\SkillsEntry{}{PostgreSQL, Vue, Sveltekit}
+\NewPart{Skills}
+\SkillsEntry{Programming}{C\#, Go, Javascript, Typescript, Python, Vue, Sveltekit, PHP}
+\SkillsEntry{Database}{SQL Server, MongoDb, PostgreSQL}
+\SkillsEntry{Agile}{Scrum, Kanban}
+
 \sepspace
-\NewPart{Projets personnels}
+\NewPart{Personnal projects}
+\Implication{TimeTunes}{\url{https://github.com/cgoat24/timetunes}}{
+	\begin{itemize}
+		\item Multiplayer mobile application where players must guess the release date of songs by correctly placing them on a timeline.
+		\item Made with Flutter, Typescript, Hono, Bun, Prisma and ProstgreSQL
+	\end{itemize}
+}
 \Implication{La Beuverie}{\url{https://la-beuverie.vercel.app}}{
 	\begin{itemize}
-		\item Application web pour partager des recettes de cocktails
+		\item Web app where users can share their favorite cocktail recipes
 		\item Développé avec Sveltekit, Prisma et PostgreSQL
 	\end{itemize}
 }
