@@ -15,7 +15,7 @@ jobs:
       - name: Install TeXLive
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-extra
+          sudo apt-get install -y texlive-full
 
       - name: Compile TeX to PDF
         run: pdflatex -interaction=nonstopmode Chad_Gauthier_cv_en.tex
