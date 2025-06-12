@@ -1,139 +1,119 @@
-\documentclass[paper=a4,fontsize=11pt]{scrartcl}
-\usepackage[english]{babel}
-\usepackage[utf8x]{inputenc}
-\usepackage[protrusion=true,expansion=true]{microtype}
-\usepackage{amsmath,amsfonts,amsthm}
-\usepackage{graphicx}
-\usepackage[svgnames]{xcolor}
-\usepackage{geometry}
-\usepackage{url}
-\usepackage{multicol}
-\usepackage{sectsty}
+\documentclass[11pt]{article}       % set main text size
+\usepackage[letterpaper,                % set paper size to letterpaper. change to a4paper for resumes outside of North America
+top=0.5in,                          % specify top page margin
+bottom=0.5in,                       % specify bottom page margin
+left=0.5in,                         % specify left page margin
+right=0.5in]{geometry}              % specify right page margin
+                       
+\usepackage{XCharter}               % set font. comment this line out if you want to use the default LaTeX font Computer Modern
+\usepackage[T1]{fontenc}            % output encoding
+\usepackage[utf8]{inputenc}         % input encoding
+\usepackage{enumitem}               % enable lists for bullet points: itemize and \item
+\usepackage[hidelinks]{hyperref}    % format hyperlinks
+\usepackage{titlesec}               % enable section title customization
+\raggedright                        % disable text justification
+\pagestyle{empty}                   % disable page numbering
 
-\frenchspacing
-\pagestyle{empty}
-\textheight=700px
-\sectionfont{
-	\usefont{OT1}{phv}{b}{n}
-	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+% ensure PDF output will be all-Unicode and machine-readable
+\input{glyphtounicode}
+\pdfgentounicode=1
 
-\newlength{\spacebox}
-\settowidth{\spacebox}{8888888888}
-\newcommand{\sepspace}{\vspace*{1em}}
+% format section headings: bolding, size, white space above and below
+\titleformat{\section}{\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule\vspace{-6.5pt}]
 
-\newcommand{\MyName}[1]{
-	\noindent\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
-	\par \normalsize \normalfont}
+% format bullet points: size, white space above and below, white space between bullets
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\setlist[itemize]{itemsep=-2pt, leftmargin=12pt, topsep=6pt} %%% Test various topsep values to fix vertical spacing errors
 
-\newcommand{\MySlogan}[1]{
-	\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
-	\par \normalsize \normalfont}
-
-\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
-
-\newcommand{\PersonalEntry}[2]{
-	\noindent\hangindent=2em\hangafter=0 % Indentation
-	\parbox{\spacebox}{ \textit{#1}} \hspace{1.5em} #2 % Box to align text% Entry name (birth, address, etc.)
-	\par}    % Entry value
-
-\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
-	\noindent\hangafter=0 % Indentation
-	\parbox{8em}{ \textit{#1}} \hspace{1.5em} #2 % Box to align text% Entry name (birth, address, etc.)
-	\par}    % Entry value
-
-\newcommand{\EducationEntry}[4]{
-	\noindent \textbf{#1} \hfill      % Study
-	\colorbox{Black}{%
-		\parbox{12em}{\hfill\color{White}#2}} %
-	\par  % Duration
-	\noindent \textit{#3} \par        % School
-	\noindent\hangindent=2em\hangafter=0 \small #4 % Description
-	\normalsize \par}
-
-\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
-	\noindent \textbf{#1} \hfill      % Jobname
-	\colorbox{Black}{\color{White}#2} \par  % Duration
-	\noindent \textit{#3} \par              % Company
-	\noindent\hangindent=2em\hangafter=0 \small #4 % Description
-	\normalsize \par}
-
-\newcommand{\Implication}[3]{				  % Same as \EducationEntry
-	\noindent \textbf{#1} \hfill      \par
-	\noindent {#2} \par              % Company
-	\noindent\hangindent=2em\hangafter=0 \small #3 % Description
-	\normalsize \par}
-
+% resume starts here
 \begin{document}
-\sepspace
-\begin{multicols}{2}
-	\huge \usefont{OT1}{phv}{b}{n}Chad Gauthier\par \normalsize \normalfont
-	\columnbreak
-	\noindent1576 Saint-Esprit st, Sherbrooke, QC J1K 2L2\\
-	819-383-7940\\
-	chad.gauthier32@gmail.com\\
-	github.com/cgoat24
-\end{multicols}
 
-\NewPart{Education}
+% name
+\centerline{\Huge Chad Gauthier}
 
-\EducationEntry{Bachelor's degree in computer science}{2022-2025}{University of Sherbrooke}
-\sepspace
-\EducationEntry{Technical diploma in computer science}{2019-2022}{Cégep of Trois-Rivières}
-\sepspace
+% \vspace{5pt}
 
-\NewPart{Professional experience}
+% contact information
+\centerline{\href{mailto:chad.gauthier32@gmail.com}{chad.gauthier32@gmail.com} | \href{https://www.github.com/cgoat24}{github.com/cgoat24}}
 
-\EducationEntry{Programmer-analyst intern}{May - august 2024}{Nmédia}{
-	\begin{itemize}
-		\item Developped a data-analysis plateform
-		\item Implement solutions based on client's needs
-	\end{itemize}
-}
-\sepspace
-\EducationEntry{Tool programmer intern}{September - december 2023}{Ubisoft Québec}{
-	\begin{itemize}
-		\item Developped a web app in Go
-		\item Wrote automated Cypress tests
-	\end{itemize}
-}
-\sepspace
-\EducationEntry{Contractual work}{April - september 2023}{Casa Das Tias}{
-	\begin{itemize}
-		\item Oversaw developement, deployment and hosting of a .NET Core web app
-		\item Analysed client's needs
-	\end{itemize}
-}
-\sepspace
-\EducationEntry{Programmer-analyst intern}{January - april 2023}{Sherweb}{
-	\begin{itemize}
-		\item Developped a microservice app using Kubernetes
-		\item Maintained quality assurance and developped new functionnality
-	\end{itemize}
-}
-\sepspace
-\EducationEntry{Programmer-analyst}{March - september 2022}{Groupe Shift}{
-	\begin{itemize}
-		\item Developped custom-made solution for entreprises
-		\item Participated in a research comity for SaaS developpement
-	\end{itemize}
-}
-\NewPart{Skills}
-\SkillsEntry{Programming}{C\#, Go, Javascript, Typescript, Python, Vue, Sveltekit, PHP}
-\SkillsEntry{Database}{SQL Server, MongoDb, PostgreSQL}
-\SkillsEntry{Agile}{Scrum, Kanban}
+\vspace{-18.5pt}
 
-\sepspace
-\NewPart{Personnal projects}
-\Implication{TimeTunes}{\url{https://github.com/cgoat24/timetunes}}{
-	\begin{itemize}
-		\item Multiplayer mobile application where players must guess the release date of songs by correctly placing them on a timeline.
-		\item Made with Flutter, Typescript, Hono, Bun, Prisma and ProstgreSQL
-	\end{itemize}
-}
-\Implication{La Beuverie}{\url{https://la-beuverie.vercel.app}}{
-	\begin{itemize}
-		\item Web app where users can share their favorite cocktail recipes
-		\item Développé avec Sveltekit, Prisma et PostgreSQL
-	\end{itemize}
-}
+% education section
+\section*{Education}
+\textbf{Université de Sherbrooke} -- Bachelor in Computer Science \hfill 2025 \\
+\textbf{Cégep de Trois-Rivières} -- Technical degree in Computer Science \hfill 2022
+
+\vspace{-6.5pt}
+
+% experience section
+\section*{Experience}
+\textbf{Programmer-analyst intern} {Nmédia} \hfill May 2024 -- August 2024 \\
+\vspace{-9pt}
+\begin{itemize}
+  \item Built a data analysis platform to evaluate solution performance and support data-driven decisions.
+  \item Refactored and upgraded core modules to enhance codebase stability, maintainability, and performance.
+  \item Collaborated in an agile team to deliver iterative improvements through sprint planning, stand-ups, and retrospectives.
+\end{itemize}
+
+\textbf{Tool programmer intern} {Ubisoft Québec} \hfill September 2023 -- December 2023 \\
+\vspace{-9pt}
+\begin{itemize}
+  \item Engineered internal tools to automate tasks, boosting efficiency and streamlining game development workflows.
+  \item Implemented features in a Go-based web app, enhancing functionality and user experience.
+  \item Built end-to-end tests with Cypress to validate key user flows and ensure a high-quality codebase.
+\end{itemize}
+
+\textbf{Programmer-analyst intern} {Sherweb} \hfill January 2023 -- April 2023 \\
+\vspace{-9pt}
+\begin{itemize}
+  \item Implemented features in a microservices app on Kubernetes, enabling scalable and resilient orchestration.
+  \item Built an internal tool to streamline workflows and improve developer experience by reducing daily friction.
+  \item Maintened quality assurance processes, enabling a high-quality developement process.
+\end{itemize}
+
+\textbf{Programmer-analyst} {Groupe Shift} \hfill March 2022 -- September 2022 \\
+\vspace{-9pt}
+\begin{itemize}
+  \item Handled over 5 projects concurrently, implementing software solutions according to client requirements.
+  \item Contributed to a SaaS research committee, providing insights to guide strategic product decisions.
+  \item Collaborated with cross-functional teams to gather specifications, document system behavior, and validate business needs.
+\end{itemize}
+
+\vspace{-18.5pt}
+
+% projects section
+\section*{Projects}
+\textbf{FlexCalc} \hfill \href{https://github.com/cgoat24/flex-calc}{github.com/cgoat24/flex-calc} \\
+\vspace{-9pt}
+\begin{itemize}
+  \item Developed a mobile app for bodybuilding enthusiasts using Svelte, Rust and Tauri.
+  \item Designed and implemented computational logic supporting a wide range of mathematical operations.
+  \item Ensured a user-friendly interface and seamless integration of new features.
+\end{itemize}
+
+\textbf{TimeTunes} \hfill \href{https://github.com/cgoat24/timetunes}{github.com/cgoat24/timetunes} \\
+\vspace{-9pt}
+\begin{itemize}
+  \item Co-developed a multiplayer mobile game where players guess song release dates by placing them on a timeline.
+  \item Integrated Spotify's SDK to stream music directly within the app, enabling users to play with any public playlist.
+  \item Implemented real-time multiplayer functionality, allowing users to play remotely, each on their own device.
+\end{itemize}
+
+\textbf{La Beuverie} \hfill \href{https://la-beuverie.vercel.app}{la-beuverie.vercel.app} \\
+\vspace{-9pt}
+\begin{itemize}
+	\item Designed and developed a full-stack web application for sharing cocktail recipes, using Svelte and TypeScript.
+	\item Configured Docker for local development, enabling consistent and reproducible environments.
+  \item Deployed the application to Vercel, ensuring scalable and performant delivery of the web application to users.
+\end{itemize}
+
+\vspace{-18.5pt}
+
+% skills section
+\section*{Skills}
+\textbf{Languages:} C\#, Javscript, Typescript, Rust, Python, Go, PHP, Java, C/C++ \\
+\textbf{Frameworks/Libraries:} Vue.js, Nuxt, Svelte, Sveltekit, React, Astro, TailwindCSS, .NET, Laravel, Express.js, Hono, Prisma \\
+\textbf{Databases:} SQL Server, PostgreSQL, MongoDb, MySQL \\
+\textbf{Tools:} Docker, Git, Github, Gitlab, Vercel, AWS, Linux
+
 \end{document}
