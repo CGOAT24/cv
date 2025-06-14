@@ -18,13 +18,15 @@ jobs:
           sudo apt-get install -y texlive-full
 
       - name: Compile TeX to PDF
-        run: pdflatex -interaction=nonstopmode Chad_Gauthier_cv_en.tex
+        run: pdflatex -interaction=nonstopmode Chad_Gauthier_cv_en.tex Chad_Gauthier_cv_fr.tex
 
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: pdf
-          path: Chad_Gauthier_cv_en.pdf
+          path: |
+            Chad_Gauthier_cv_en.pdf
+            Chad_Gauthire_cv_fr.pdf
 
   release:
     needs: build
@@ -42,18 +44,11 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: elgohr/Github-Release-Action@v5
+        uses: marvinpinto/action-automatic-releases@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          title: "ChadGauthier_cv_en"
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: Chad_Gauthier_cv_en.pdf
-          asset_name: Chad_Gauthier_cv_en.pdf
-          asset_content_type: application/pdf
+          automatic_release_tag: "latest"
+          files: |
+            Chad_Gauthier_cv_en.pdf
+            Chad_Gauthier_cv_fr.pdf
