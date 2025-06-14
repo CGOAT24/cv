@@ -12,21 +12,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install TeXLive
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-full
-
       - name: Compile TeX to PDF
-        run: pdflatex -interaction=nonstopmode Chad_Gauthier_cv_en.tex Chad_Gauthier_cv_fr.tex
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: |
+            Chad_Gauthier_cv_en.tex 
+            Chad_Gauthier_cv_fr.tex
 
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
-          name: pdf
-          path: |
-            Chad_Gauthier_cv_en.pdf
-            Chad_Gauthire_cv_fr.pdf
+          name: cv
+          path: *.pdf
 
   release:
     needs: build
@@ -39,10 +36,7 @@ jobs:
       - name: Download PDF artifact
         uses: actions/download-artifact@v4
         with:
-          name: pdf
-          path: |
-            Chad_Gauthier_cv_en.pdf
-            Chad_Gauthier_cv_fr.pdf
+          name: cv
 
       - name: Create Release
         id: create_release
