@@ -45,10 +45,9 @@ jobs:
       - name: Create Release
         id: create_release
         uses: marvinpinto/action-automatic-releases@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          automatic_release_tag: "latest"
+          automatic_release_tag: latest
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           files: |
             Chad_Gauthier_cv_en.pdf
             Chad_Gauthier_cv_fr.pdf
