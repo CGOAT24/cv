@@ -40,7 +40,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: pdf
-          path: Chad_Gauthier_cv_en.pdf
+          path: |
+            Chad_Gauthier_cv_en.pdf
+            Chad_Gauthier_cv_fr.pdf
 
       - name: Create Release
         id: create_release
@@ -48,6 +50,7 @@ jobs:
         with:
           automatic_release_tag: latest
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: false
           files: |
             Chad_Gauthier_cv_en.pdf
             Chad_Gauthier_cv_fr.pdf
